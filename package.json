@@ -1,0 +1,42 @@
+{
+  "name": "scroll-restoration-polyfill",
+  "version": "0.5.0",
+  "description": "Prevent the scroll restoration caused by the popstate event or back/forward buttons.",
+  "license": "MIT",
+  "repository": "bfred-it/scroll-restoration-polyfill",
+  "author": {
+    "name": "Federico Brigante",
+    "email": "bfred-it@users.noreply.github.com",
+    "url": "twitter.com/bfred_it"
+  },
+  "keywords": [
+    "browser",
+    "scroll-restoration",
+    "polyfill",
+    "back-button",
+    "history",
+    "history-api",
+    "replacestate",
+    "ajax"
+  ],
+  "files": [
+    "index.js",
+    "dist/scroll-restoration-polyfill.node.js"
+  ],
+  "main": "dist/scroll-restoration-polyfill.node.js",
+  "jsnext:main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "build": "./node_modules/bfred-npm-bundler/tasks/all-self-contained.sh index.js scroll-restoration-polyfill",
+    "to-npm": "./node_modules/bfred-npm-bundler/tasks/to-npm.sh index.js scroll-restoration-polyfill",
+    "prepublish": "npm run to-npm"
+  },
+  "devDependencies": {
+    "bfred-npm-bundler": "^1.2.0"
+  },
+  "dependencies": {
+    "prevent-popstate-scroll": "^1.0.0"
+  }
+}
