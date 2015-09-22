@@ -7,7 +7,7 @@ function init () {
 	Object.defineProperty(history, 'scrollRestoration', {
 		// enumerable: true,
 		get() {
-			return isPrevented;
+			return isPrevented ? 'manual' : 'auto';
 		},
 		set(ScrollRestoration) {
 			switch (ScrollRestoration) {

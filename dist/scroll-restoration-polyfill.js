@@ -9,7 +9,7 @@ function init() {
 	Object.defineProperty(history, 'scrollRestoration', {
 		// enumerable: true,
 		get: function get() {
-			return _preventPopstateScroll.isPrevented;
+			return _preventPopstateScroll.isPrevented ? 'manual' : 'auto';
 		},
 		set: function set(ScrollRestoration) {
 			switch (ScrollRestoration) {
