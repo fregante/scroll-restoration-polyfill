@@ -24,23 +24,19 @@ npm install --save scroll-restoration-polyfill
 require('scroll-restoration-polyfill');
 ```
 
-## API
- 
 ## Files
 
 Here's an explanation of the files included in this repo
 
 * `index.js`: source file, in ES6
-* `dist/scroll-restoration-polyfill.js`: browser-ready file with AMD or a global variable called `getIntrinsicScale`
+* `dist/scroll-restoration-polyfill.js`: browser-ready file with AMD
 * `dist/scroll-restoration-polyfill.min.js`: same as above, minified
 * `dist/scroll-restoration-polyfill.node.js`: used by node/browserify with `require('scroll-restoration-polyfill')`
 * `dist/scroll-restoration-polyfill.node.min.js`: same as above, but minified, for byte counting only
 
 ## Dependencies
 
-http://majido.github.io/scroll-restoration-proposal/history-based-api.html
-
-* [`prevent-popstate-scroll` <img alt="dependency gzipped size" src="https://badge-size.herokuapp.com/bfred-it/prevent-popstate-scroll/master/dist/prevent-popstate-scroll.node.min.js?compression=gzip&amp;label=size" height="13">](https://www.npmjs.com/package/one-event)
+* [`prevent-popstate-scroll` <img alt="dependency gzipped size" src="https://badge-size.herokuapp.com/bfred-it/prevent-popstate-scroll/master/dist/prevent-popstate-scroll.node.min.js?compression=gzip&amp;label=size" height="13">](https://github.com/bfred-it/prevent-popstate-scroll)
 
 ## License
 
