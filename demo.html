@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Prevent Popstate Scroll demo</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script>var canControlScrollRestoration = 'scrollRestoration' in window.history;</script>
+	<script src="dist/scroll-restoration-polyfill.js"></script>
+	<script>var canControlScrollRestorationNow = 'scrollRestoration' in window.history;</script>
+	<style>
+		html {
+			font-family: sans-serif;
+			font-size: 1.3em;
+			height: 5000px;
+			background: linear-gradient(#fff, #408000);
+		}
+		.overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			padding: 1em;
+			background: rgba(255,255,255,.8);
+		}
+		label {
+			font-style: italic;
+		}
+		::-webkit-scrollbar {
+			width: 1em;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: #408000;
+			outline: 1px solid white;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="overlay">
+		<p>Support: <script>document.write(canControlScrollRestoration?"native":canControlScrollRestorationNow?"via polyfill":"polyfill failed. Open an issue on GitHub please!")</script></p>
+		<p><code>"auto"</code> behavior: scroll is restored to where the user was before chainging URL (pushState, in this case)</p>
+		<ol>
+			<li>Try simulating 5 scrolls+navigations: <button type="button" id="add-demo-entries">Simulate</button></li>
+			<li>Go back 5 times, notice jumping behavior.</li>
+		</ol>
+		<ol>
+			<li>Now check this box:
+				<input type="checkbox" id="prevention">
+				<label for="prevention"><code>history.scrollRestoration = "manual"</code></label></li>
+			<li>Simulate again</li>
+			<li>Go back 5 times, notice that the scrolling remains constant</li>
+		</ol>
+	</div>
+	<script>
+	var checkbox = document.getElementById('prevention');
+	var simulate = document.getElementById('add-demo-entries');
+	function updatePreference () {
+		history.scrollRestoration = checkbox.checked?'manual':'auto';
+	}
+
+	var count = 1;
+	function addDemoEntries () {
+		var start = count;
+		var timer = setInterval(function () {
+			window.scrollTo(0, Math.random()*4000);
+			history.pushState(history.state, '', '#'+count)
+			count++;
+			if (count > start + 4) {
+				clearInterval(timer);
+			}
+		}, 100);
+	}
+	checkbox.addEventListener('change', updatePreference);
+	simulate.addEventListener('click', addDemoEntries);
+	updatePreference();
+	</script>
+</body>
+</html>

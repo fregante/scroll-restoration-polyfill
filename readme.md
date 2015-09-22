@@ -1,6 +1,6 @@
 # scroll-restoration-polyfill [![module size](https://badge-size.herokuapp.com/bfred-it/scroll-restoration-polyfill/master/dist/scroll-restoration-polyfill.node.min.js) ![module gzipped size](https://badge-size.herokuapp.com/bfred-it/scroll-restoration-polyfill/master/dist/scroll-restoration-polyfill.node.min.js?compression=gzip)](https://github.com/bfred-it/scroll-restoration-polyfill/blob/master/dist/scroll-restoration-polyfill.min.js)
 
-> Prevent the scroll restoration caused by the `popstate` event or back/forward buttons.
+> Prevent the scroll restoration caused by the `popstate` event or back/forward buttons. [Demo](https://rawgit.com/bfred-it/scroll-restoration-polyfill/master/demo.html)
 
 ## Usage
 
