@@ -6,7 +6,7 @@
 	<title>Prevent Popstate Scroll demo</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<script>var canControlScrollRestoration = 'scrollRestoration' in window.history;</script>
-	<script src="dist/scroll-restoration-polyfill.js"></script>
+	<script src="dist/scroll-restoration-polyfill.browser.js"></script>
 	<script>var canControlScrollRestorationNow = 'scrollRestoration' in window.history;</script>
 	<style>
 		html {
@@ -40,19 +40,18 @@
 
 <body>
 	<div class="overlay">
-		<p>Support: <script>document.write(canControlScrollRestoration?"native":canControlScrollRestorationNow?"via polyfill":"polyfill failed. Open an issue on GitHub please!")</script></p>
-		<p><code>"auto"</code> behavior: scroll is restored to where the user was before chainging URL (pushState, in this case)</p>
+		<p>Support? <strong><script>document.write(canControlScrollRestoration?"Native":canControlScrollRestorationNow?"Via polyfill":"Polyfill failed. Open an issue on GitHub please!")</script></strong></p>
 		<ol>
 			<li>Try simulating 5 scrolls+navigations: <button type="button" id="add-demo-entries">Simulate</button></li>
 			<li>Go back 5 times, notice jumping behavior.</li>
 		</ol>
 		<ol>
-			<li>Now check this box:
-				<input type="checkbox" id="prevention">
+			<li>Now simulate again</li>
+			<li>Tick this box: <input type="checkbox" id="prevention">
 				<label for="prevention"><code>history.scrollRestoration = "manual"</code></label></li>
-			<li>Simulate again</li>
 			<li>Go back 5 times, notice that the scrolling remains constant</li>
 		</ol>
+		<p><code>history.scrollRestoration = "auto"</code> is the default behavior: scroll is restored to where the user was before changing URL (via <code>pushState</code>, or <code>location.hash</code>)</p>
 	</div>
 	<script>
 	var checkbox = document.getElementById('prevention');
