@@ -35,7 +35,7 @@ npm install --save scroll-restoration-polyfill
 ```
 
 ```js
-equire('scroll-restoration-polyfill');
+require('scroll-restoration-polyfill');
 ```
 
 ## Links
@@ -47,7 +47,7 @@ equire('scroll-restoration-polyfill');
 
 ## Dependencies
 
-Two lightweight dependencies, already included in `scroll-restoration-polyfill`'s <img alt="scroll-restoration-polyfill's gzipped size" src="https://badges.herokuapp.com/size/github/bfred-it/scroll-restoration-polyfill/master/dist/scroll-restoration-polyfill.browser.js?gzip=true&label=gzipped%20size" height="13">
+Two lightweight dependencies, already included in `scroll-restoration-polyfill`'s <img alt="scroll-restoration-polyfill's gzipped size" src="https://badges.herokuapp.com/size/github/bfred-it/scroll-restoration-polyfill/master/dist/scroll-restoration-polyfill.browser.js?gzip=true&label=gzipped%20size" height="13" style="vertical-align: middle;">
 
 * [`one-event`](https://github.com/bfred-it/one-event)
 * [`get-scroll`](https://github.com/bfred-it/get-scroll)
