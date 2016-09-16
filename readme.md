@@ -22,13 +22,11 @@ history.scrollRestoration = 'auto';
 
 ## Install
 
-## Load with plain HTML
+Pick your favorite:
 
 ```html
 <script src="dist/scroll-restoration-polyfill.browser.js"></script>
 ```
-
-## Load with browserify
 
 ```sh
 npm install --save scroll-restoration-polyfill
@@ -38,12 +36,15 @@ npm install --save scroll-restoration-polyfill
 require('scroll-restoration-polyfill');
 ```
 
+```js
+import 'scroll-restoration-polyfill';
+```
+
 ## Links
 
 - Specification: http://majido.github.io/scroll-restoration-proposal/history-based-api.html
 - Native compatibility table: https://developer.mozilla.org/en/docs/Web/API/History#Browser_compatibility
 - Chrome Developers post: https://developers.google.com/web/updates/2015/09/history-api-scroll-restoration
-
 
 ## Dependencies
 
