@@ -66,7 +66,7 @@
 		var start = count;
 		var timer = setInterval(function () {
 			window.scrollTo(0, Math.random()*4000);
-			history.pushState(history.state, '', '#'+count)
+			location.hash = '#'+count;
 			count++;
 			if (count > start + 4) {
 				clearInterval(timer);
