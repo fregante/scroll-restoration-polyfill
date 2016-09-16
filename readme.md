@@ -3,7 +3,7 @@
 > Prevent the scroll restoration caused by the `popstate` event or back/forward buttons. [Demo](https://rawgit.com/bfred-it/scroll-restoration-polyfill/master/demo.html)
 
 [![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/scroll-restoration-polyfill/master/dist/scroll-restoration-polyfill.browser.js?gzip=true&label=gzipped%20size)](#readme)
-[![Travis build status](https://api.travis-ci.org/bfred-it/scroll-restoration-polyfill.svg?branch=gh-pages)](https://travis-ci.org/bfred-it/scroll-restoration-polyfill)
+[![Travis build status](https://api.travis-ci.org/bfred-it/scroll-restoration-polyfill.svg)](https://travis-ci.org/bfred-it/scroll-restoration-polyfill)
 [![npm version](https://img.shields.io/npm/v/scroll-restoration-polyfill.svg)](https://www.npmjs.com/package/scroll-restoration-polyfill) 
 
 *Warning:* it works in Chrome, Safari, and Firefox 46+, but there's **no IE/Edge support yet.**
