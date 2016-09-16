@@ -1,39 +1,26 @@
-import {getScrollTop, getScrollLeft} from 'get-scroll';
 import once from 'one-event';
+import {getScrollTop, getScrollLeft} from 'get-scroll';
 
-let isManual = false;
-let lastScrollPosition;
-
-function resetScroll() {
-	scrollTo.apply(window, lastScrollPosition);
-}
+let state = 'auto';
 
 function waitForScroll() {
-	lastScrollPosition = [getScrollLeft(), getScrollTop()];
-	once(window, 'scroll', resetScroll);
-}
-
-function event(action) {
-	// removeEventListener only if it's manual
-	// otherwise removeEventListener only if it's not already manual
-	if (action === 'removeEventListener' === isManual) {
-		window[action]('popstate', waitForScroll);
-	}
+	once(window, 'scroll', scrollTo.bind(window, getScrollLeft(), getScrollTop()));
 }
 
 if (!('scrollRestoration' in history)) {
 	Object.defineProperty(history, 'scrollRestoration', {
 		enumerable: true,
-		get() {
-			return isManual ? 'manual' : 'auto';
-		},
-		set(requestedState) {
+		get: () => state,
+		set: requestedState => {
+			if (requestedState === state) {
+				return;
+			}
 			if (requestedState === 'auto') {
-				event('removeEventListener');
-				isManual = false;
+				window.removeEventListener('popstate', waitForScroll);
+				state = requestedState;
 			} else if (requestedState === 'manual') {
-				event('addEventListener');
-				isManual = true;
+				window.addEventListener('popstate', waitForScroll);
+				state = requestedState;
 			}
 		}
 	});
