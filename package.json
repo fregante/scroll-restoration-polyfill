@@ -1,6 +1,6 @@
 {
   "name": "scroll-restoration-polyfill",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Prevent the scroll restoration caused by the popstate event or back/forward buttons.",
   "license": "MIT",
   "repository": "bfred-it/scroll-restoration-polyfill",
