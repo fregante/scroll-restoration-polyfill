@@ -2,9 +2,17 @@ import once from 'one-event';
 import {getScrollTop, getScrollLeft} from 'get-scroll';
 
 let state = 'auto';
+let left = 0;
+let top = 0;
+
+function restoreScroll() {
+	window.scrollTo(left, top);
+}
 
 function waitForScroll() {
-	once(window, 'scroll', scrollTo.bind(window, getScrollLeft(), getScrollTop()));
+	left = getScrollLeft();
+	top = getScrollTop();
+	once(window, 'scroll', restoreScroll);
 }
 
 if (!('scrollRestoration' in history)) {
@@ -17,6 +25,7 @@ if (!('scrollRestoration' in history)) {
 			}
 			if (requestedState === 'auto') {
 				window.removeEventListener('popstate', waitForScroll);
+				window.removeEventListener('scroll', restoreScroll);
 				state = requestedState;
 			} else if (requestedState === 'manual') {
 				window.addEventListener('popstate', waitForScroll);
