@@ -2,23 +2,19 @@
   "name": "scroll-restoration-polyfill",
   "version": "0.6.1",
   "description": "Prevent the scroll restoration caused by the popstate event or back/forward buttons.",
-  "license": "MIT",
-  "repository": "bfred-it/scroll-restoration-polyfill",
-  "author": {
-    "name": "Federico Brigante",
-    "email": "bfred-it@users.noreply.github.com",
-    "url": "twitter.com/bfred_it"
-  },
   "keywords": [
-    "browser",
-    "scroll-restoration",
-    "polyfill",
+    "ajax",
     "back-button",
+    "browser",
     "history",
     "history-api",
+    "polyfill",
     "replacestate",
-    "ajax"
+    "scroll-restoration"
   ],
+  "repository": "fregante/scroll-restoration-polyfill",
+  "license": "MIT",
+  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "dist/scroll-restoration-polyfill.common-js.js",
     "dist/scroll-restoration-polyfill.es-modules.js",
@@ -28,28 +24,28 @@
   "module": "dist/scroll-restoration-polyfill.es-modules.js",
   "jsnext:main": "dist/scroll-restoration-polyfill.es-modules.js",
   "scripts": {
-    "build:js": "bfred-npm-bundler scroll-restoration-polyfill none",
     "build": "npm-run-all --silent jsfix build:*",
+    "build:js": "bfred-npm-bundler scroll-restoration-polyfill none",
     "jsfix": "xo --fix",
-    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
-    "watch": "npm-run-all --parallel --silent watch:*",
     "prepublish": "npm run build",
-    "test": "xo; npm run build"
+    "test": "xo; npm run build",
+    "watch": "npm-run-all --parallel --silent watch:*",
+    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error"
+  },
+  "xo": {
+    "env": [
+      "browser"
+    ],
+    "esnext": true
+  },
+  "dependencies": {
+    "get-scroll": "^2.0.0",
+    "one-event": "^1.2.0"
   },
   "devDependencies": {
     "bfred-npm-bundler": "^7.1.2",
     "npm-run-all": "^3.1.0",
     "onchange": "^3.0.2",
     "xo": "^0.16.0"
-  },
-  "xo": {
-    "esnext": true,
-    "env": [
-      "browser"
-    ]
-  },
-  "dependencies": {
-    "get-scroll": "^2.0.0",
-    "one-event": "^1.2.0"
   }
 }
